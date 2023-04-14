@@ -40,3 +40,16 @@ export const updateEntry = entry => {
   })
 };
 
+export const GetAllTags = () => {
+  return fetch(`http://localhost:8088/tags`)
+  .then(res => res.json())
+};
+export const addEntryTag = entryTag => {
+  return fetch("http://localhost:8088/entryTags", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(entryTag)
+  });
+};
